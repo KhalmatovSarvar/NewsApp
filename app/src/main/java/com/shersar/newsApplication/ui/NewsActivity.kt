@@ -1,6 +1,7 @@
 package com.shersar.newsApplication.ui
 
 import android.os.Bundle
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
@@ -15,9 +16,7 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class NewsActivity : AppCompatActivity() {
 
-    val viewModel: NewsViewmodel by lazy {
-        ViewModelProvider(this).get(NewsViewmodel::class.java)
-    }
+    val viewModel: NewsViewmodel by viewModels()
     private lateinit var binding: ActivityNewsBinding
     private lateinit var navController: NavController
 

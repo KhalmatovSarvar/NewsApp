@@ -17,12 +17,11 @@ object NetworkModule {
 
     @Provides
     @Singleton
-    fun provideRetrofit(client: OkHttpClient, factory: GsonConverterFactory): Retrofit {
+    fun provideRetrofit(): Retrofit {
         return Retrofit
             .Builder()
             .baseUrl(Constants.BASE_URL)
-            .client(client)
-            .addConverterFactory(factory)
+            .addConverterFactory(GsonConverterFactory.create())
             .build()
     }
 
@@ -31,12 +30,5 @@ object NetworkModule {
     fun provideApiService(retrofit: Retrofit): NewsAPI {
         return retrofit.create(NewsAPI::class.java)
     }
-
-    @Provides
-    @Singleton
-    fun provideFactory(): GsonConverterFactory {
-        return GsonConverterFactory.create()
-    }
-
 
 }
