@@ -16,7 +16,8 @@ import com.shersar.newsApplication.R
 import com.shersar.newsApplication.adapters.NewsAdapter
 import com.shersar.newsApplication.databinding.FragmentBreakingNewsBinding
 import com.shersar.newsApplication.models.Article
-import com.shersar.newsApplication.ui.NewsViewmodel
+import com.shersar.newsApplication.ui.NewsFragmentViewModel
+import com.shersar.newsApplication.ui.NewsViewModel
 import com.shersar.newsApplication.utils.Constants.Companion.QUERY_PAGE_SIZE
 import com.shersar.newsApplication.utils.Resource
 import dagger.hilt.android.AndroidEntryPoint
@@ -25,10 +26,9 @@ import viewBinding
 @AndroidEntryPoint
 class BreakingNewsFragment : Fragment(R.layout.fragment_breaking_news) {
     private val binding by viewBinding { FragmentBreakingNewsBinding.bind(it) }
-    private val viewmodel: NewsViewmodel by viewModels()
+    private val viewmodel: NewsViewModel by viewModels()
     lateinit var newsAdapter: NewsAdapter
     val TAG = "BreakingNewsFragment"
-
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -53,7 +53,7 @@ class BreakingNewsFragment : Fragment(R.layout.fragment_breaking_news) {
 
 
     private fun setupObservers() {
-        viewmodel.breakingNews.observe(viewLifecycleOwner, Observer { response ->
+        viewmodel.breakingNewsLiveData.observe(viewLifecycleOwner, Observer { response ->
             when (response) {
                 is Resource.Success -> {
                     hideProgressBar()

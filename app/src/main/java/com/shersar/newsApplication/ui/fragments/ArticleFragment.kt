@@ -9,13 +9,13 @@ import androidx.navigation.fragment.navArgs
 import com.google.android.material.snackbar.Snackbar
 import com.shersar.newsApplication.R
 import com.shersar.newsApplication.databinding.FragmentArticleBinding
-import com.shersar.newsApplication.ui.NewsViewmodel
+import com.shersar.newsApplication.ui.NewsViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import viewBinding
 
 @AndroidEntryPoint
 class ArticleFragment : Fragment(R.layout.fragment_article) {
-    private val viewmodel: NewsViewmodel by viewModels()
+    private val viewmodel: NewsViewModel by viewModels()
     private val binding by viewBinding { FragmentArticleBinding.bind(it) }
 
 

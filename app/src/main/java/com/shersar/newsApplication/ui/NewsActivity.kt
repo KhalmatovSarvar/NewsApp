@@ -3,7 +3,6 @@ package com.shersar.newsApplication.ui
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
@@ -16,7 +15,7 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class NewsActivity : AppCompatActivity() {
 
-    val viewModel: NewsViewmodel by viewModels()
+    private val viewModel: NewsViewModel by viewModels()
     private lateinit var binding: ActivityNewsBinding
     private lateinit var navController: NavController
 

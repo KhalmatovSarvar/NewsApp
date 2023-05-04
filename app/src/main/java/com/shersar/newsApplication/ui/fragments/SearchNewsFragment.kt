@@ -17,7 +17,7 @@ import com.shersar.newsApplication.R
 import com.shersar.newsApplication.adapters.NewsAdapter
 import com.shersar.newsApplication.databinding.FragmentSearchNewsBinding
 import com.shersar.newsApplication.models.Article
-import com.shersar.newsApplication.ui.NewsViewmodel
+import com.shersar.newsApplication.ui.NewsViewModel
 import com.shersar.newsApplication.utils.Constants
 import com.shersar.newsApplication.utils.Constants.Companion.SEARCH_NEWS_TIME_DELAY
 import com.shersar.newsApplication.utils.Resource
@@ -31,7 +31,7 @@ import viewBinding
 @AndroidEntryPoint
 class SearchNewsFragment : Fragment(R.layout.fragment_search_news) {
     private val binding by viewBinding { FragmentSearchNewsBinding.bind(it) }
-    private val viewmodel: NewsViewmodel by viewModels()
+    private val viewmodel: NewsViewModel by viewModels()
     val TAG = "SearchNewsFragment"
     lateinit var newsAdapter: NewsAdapter
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

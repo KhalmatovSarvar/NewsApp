@@ -12,13 +12,13 @@ import com.google.android.material.snackbar.Snackbar
 import com.shersar.newsApplication.R
 import com.shersar.newsApplication.adapters.NewsAdapter
 import com.shersar.newsApplication.databinding.FragmentSavedNewsBinding
-import com.shersar.newsApplication.ui.NewsViewmodel
+import com.shersar.newsApplication.ui.NewsViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import viewBinding
 
 @AndroidEntryPoint
 class SavedNewsFragment:Fragment(R.layout.fragment_saved_news) {
-    private val viewmodel: NewsViewmodel by viewModels()
+    private val viewmodel: NewsViewModel by viewModels()
     lateinit var newsAdapter: NewsAdapter
     private val binding by viewBinding { FragmentSavedNewsBinding.bind(it) }
 

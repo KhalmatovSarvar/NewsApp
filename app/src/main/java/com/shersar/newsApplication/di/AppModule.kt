@@ -5,6 +5,7 @@ import com.shersar.newsApplication.api.NewsAPI
 import com.shersar.newsApplication.db.AppDatabase
 import com.shersar.newsApplication.db.ArticleDao
 import com.shersar.newsApplication.repository.NewsRepository
+import com.shersar.newsApplication.repository.NewsRepositoryImpl
 import com.shersar.newsApplication.utils.NetworkConnectivityObserver
 
 import dagger.Module
@@ -29,8 +30,8 @@ object AppModule {
     }
 
     @Provides
-    fun provideNewsRepository(articleDao: ArticleDao,api: NewsAPI): NewsRepository {
-        return NewsRepository(articleDao,api)
+    fun provideNewsRepository(articleDao: ArticleDao,api: NewsAPI): NewsRepositoryImpl {
+        return NewsRepositoryImpl(articleDao,api)
     }
 
 
@@ -38,8 +39,6 @@ object AppModule {
     fun provideNetworkConnectivityObserver(@ApplicationContext context: Context): NetworkConnectivityObserver {
         return NetworkConnectivityObserver(context)
     }
-
-
 }
 
 
